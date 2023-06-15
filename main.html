@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script>
     $(document).ready(function() {
       // Create an array of numbers
@@ -14,6 +14,14 @@
 
       // Create a string representation of the array
       const arrayString = numbers.join(", ");
+
+      // Function to show or hide the array
+      function toggleArray() {
+        $("#arrayElement").toggle();
+      }
+
+      // Attach the toggleArray function to the button click event
+      $("#toggleButton").click(toggleArray);
 
       // Update the HTML element with the array
       $("#arrayElement").text(arrayString);
@@ -166,9 +174,9 @@
       <h1>Welcome</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <hr>
-      <h3>Test</h3>
-      <h1>Array Example</h1>
-      <p>The array is: <span id="arrayElement"></span></p>
+      <h2>E9 - Show/Hide Array Example</h2>
+      <button id="toggleButton" class="btn btn-primary">Click to show/hide array </button>
+      <p id="arrayElement"></p>
 
       <div class="accordion" id="accordionExample">
         <div class="panel panel-default">
