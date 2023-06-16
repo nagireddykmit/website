@@ -70,7 +70,7 @@
     }
 
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 800px}
+    .row.content {height: 2000px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -88,6 +88,23 @@
     
     .btn{
       margin:10px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .panel{
+      margin-top: 10px;
     }
 
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -219,6 +236,43 @@
         </thead>
         <tbody id ="arrayBody"></tbody>
       </table>
+
+      <h2>E11 - Json File</h2>
+      
+      <table id="company-table">
+        <thead>
+          <tr>
+            <th>Company Name</th>
+            <th>About</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <script>
+        // Fetch the JSON data from an external file
+        fetch('data.json')
+          .then(response => response.json())
+          .then(data => {
+            var tableBody = document.querySelector('#company-table tbody');
+      
+            data.forEach(function(company) {
+              var row = document.createElement('tr');
+              var nameCell = document.createElement('td');
+              var aboutCell = document.createElement('td');
+      
+              nameCell.textContent = company.company_name;
+              aboutCell.textContent = company.about;
+      
+              row.appendChild(nameCell);
+              row.appendChild(aboutCell);
+      
+              tableBody.appendChild(row);
+            });
+          })
+          .catch(error => {
+            console.error('Error loading JSON data:', error);
+          });
+      </script>
 
       <div class="accordion" id="accordionExample">
         <div class="panel panel-default">
